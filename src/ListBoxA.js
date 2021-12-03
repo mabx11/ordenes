@@ -3,25 +3,22 @@ import '@progress/kendo-theme-default/dist/all.css';
 import * as ReactDOM from 'react-dom';
 import { ListBox, ListBoxToolbar, processListBoxData, processListBoxDragAndDrop } from '@progress/kendo-react-listbox';
 const data = [{
-  name: 'Steven White',
+  name: 'TRIGLICERIDOS',
   selected: true
 }, {
-  name: 'Nancy King',
+  name: 'COLESTEROL',
   selected: false
 }, {
-  name: 'Nancy Davolio',
+  name: 'HDL COLESTEROL',
   selected: false
 }, {
-  name: 'Robert Davolio',
+  name: 'GLOBULOS BLANCOS',
   selected: false
 }, {
-  name: 'Michael Leverling',
+  name: 'LINFOCITOS',
   selected: false
 }, {
-  name: 'Andrew Callahan',
-  selected: false
-}, {
-  name: 'Michael Suyama',
+  name: 'MIXTOS ABSOLUTOS',
   selected: false
 }];
 const SELECTED_FIELD = 'selected';

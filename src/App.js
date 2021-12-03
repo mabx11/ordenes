@@ -13,7 +13,7 @@ import ListBoxA from './ListBoxA';
 import './App.css';
 import { borderRadius } from '@mui/system';
 
-class guardarOrden extends Component{
+class App extends Component{
 
 
   state = {
@@ -23,16 +23,16 @@ class guardarOrden extends Component{
     tiposervicio: [],
   }
 
-  /* componentDidMount(){
-    this.consultarOrden();  
-  } */
+  componentDidMount(){
+    this.guardarOrden();  
+  }
 
-  /* consultarOrden = async () =>{
+  guardarOrden = async () =>{
     
-    const url = `https://localhost:44385/api/Pacientes`;
-    const url2 = `https://localhost:44385/api/TipoOrden`;
-    const url3 = `https://localhost:44385/api/Medicos`;
-    const url4 = `https://localhost:44385/api/TipoServicio`;
+    const url = `https://localhost:44364/api/Pacientes`;
+    const url2 = `https://localhost:44364/api/TipoOrden`;
+    const url3 = `https://localhost:44364/api/Medicos`;
+    const url4 = `https://localhost:44364/api/TipoServicio`;
 
     const respuesta = await fetch(url);
     const respuesta2 = await fetch(url2);
@@ -45,8 +45,6 @@ class guardarOrden extends Component{
     const tiposervicio = await respuesta4.json();
 
     
-    
-    
     this.setState({
       paciente: paciente,
       tipoorden: tipoorden,
@@ -54,7 +52,7 @@ class guardarOrden extends Component{
       tiposervicio: tiposervicio,
     
     });
-  } */
+  }
 
   render(){
     return (
@@ -87,14 +85,14 @@ class guardarOrden extends Component{
                 <Form.Select defaultValue="Seleccione...">
                   <option>Seleccione...</option>
   
-                {/* {this.state.paciente.map((pat) => (
+                {this.state.paciente.map((pat) => (
                   <option
                     key={pat.idPaciente}
                     value={pat.idPaciente}
                   >
                     {pat.primerNombre + ' ' + pat.segundoNombre + ' ' + pat.primerApellido + ' '  + pat.segundoApellido}
                   </option>
-                ))} */}
+                ))}
 
                 </Form.Select>
               </Form.Group>
@@ -103,14 +101,16 @@ class guardarOrden extends Component{
                 <Form.Label><h5>Tipo de Orden:</h5></Form.Label>
                 <Form.Select defaultValue="Seleccione...">
                   <option>Seleccione...</option>
-                  {/* {this.state.tipoorden.map((tor) => (
+                  {this.state.tipoorden.map((tor) => (
                   <option
                     key={tor.idTipoOrden}
                     value={tor.idTipoOrden}
+                    
                   >
                     {tor.descripcion}
                   </option>
-                ))} */}
+                  
+                ))}
                 </Form.Select>
               </Form.Group>
             </Row>
@@ -120,14 +120,14 @@ class guardarOrden extends Component{
                 <Form.Label><h5>Tipo de Servicio:</h5></Form.Label>
                 <Form.Select defaultValue="Seleccione...">
                   <option>Seleccione...</option>
-                  {/* {this.state.tiposervicio.map((tser) => (
+                  {this.state.tiposervicio.map((tser) => (
                   <option
                     key={tser.idTipoServicioOrden}
                     value={tser.idTipoServicio}
                   >
                     {tser.descripcion}
                   </option>
-                ))} */}
+                ))}
                 </Form.Select>
               </Form.Group>
               
@@ -137,19 +137,19 @@ class guardarOrden extends Component{
                 <Form.Select defaultValue="Seleccione...">
                   <option>Seleccione...</option>
 
-                  {/* {this.state.medico.map((med) => (
+                  {this.state.medico.map((med) => (
                   <option
                     key={med.idTblMedico}
                     value={med.idTblMedico}
                   >
                     {med.nombres + ' ' + med.apellidos}
                   </option>
-                ))} */}
+                ))}
 
                 </Form.Select>
               </Form.Group>
   
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridState" id="asist" style={{display: 'none'}}>
                 <Form.Label><h5>Asistencia:</h5></Form.Label>
                 <Form.Select defaultValue="Seleccione...">
                   <option >Seleccione...</option>
@@ -195,5 +195,8 @@ class guardarOrden extends Component{
   }
   
 };
-
-export default guardarOrden;
+var aja = "Cita";
+if (aja == "Cita") {
+  console.log("Si se puede");
+}
+export default App;
