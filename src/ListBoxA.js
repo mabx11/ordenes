@@ -74,21 +74,23 @@ const ListBoxA = () => {
     });
   };
 
-  return <div className='container row'>
-        <div className='row justify-content-center'>
-          <div className='col k-pr-2'>
-            <h6>Employees</h6>
+  return <div style={{ background: "#f5f5f5",textAlign: 'center'}} className='container row'>
+        <div style={{background: "#f5f5f5"}} className='row justify-content-center'>
+          <div style={{background: "#f5f5f5"}} className='col k-pr-2'>
+            <h5>No asignados</h5>
             <ListBox style={{
-          height: 400,
+          backgroundColor: "#f5f5f5",
+          height: 300,
           width: '100%'
         }} data={state.employees} textField="name" selectedField={SELECTED_FIELD} onItemClick={e => handleItemClick(e, 'employees', 'developers')} onDragStart={handleDragStart} onDrop={handleDrop} toolbar={() => {
-          return <ListBoxToolbar tools={['moveUp', 'moveDown', 'transferTo', 'transferFrom', 'transferAllTo', 'transferAllFrom']} data={state.employees} dataConnected={state.developers} onToolClick={handleToolBarClick} />;
+          return <ListBoxToolbar style={{background: "#f5f5f5"}} tools={['moveUp', 'moveDown', 'transferTo', 'transferFrom', 'transferAllTo', 'transferAllFrom']} data={state.employees} dataConnected={state.developers} onToolClick={handleToolBarClick} />;
         }} />
           </div>
-          <div className='col k-pl-0'>
-            <h6>Developers</h6>
+          <div style={{background: "#f5f5f5"}} className='col k-pl-0'>
+            <h5>Asignados</h5>
             <ListBox style={{
-          height: 400,
+          backgroundColor: "#f5f5f5",
+          height: 300,
           width: '100%'
         }} data={state.developers} textField="name" selectedField={SELECTED_FIELD} onItemClick={e => handleItemClick(e, 'developers', 'employees')} onDragStart={handleDragStart} onDrop={handleDrop} />
           </div>
