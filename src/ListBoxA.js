@@ -1,34 +1,46 @@
-import * as React from 'react';
+//import * as React from 'react';
+import React, { Component, useState } from "react";
 import '@progress/kendo-theme-default/dist/all.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import * as ReactDOM from 'react-dom';
 import { ListBox, ListBoxToolbar, processListBoxData, processListBoxDragAndDrop } from '@progress/kendo-react-listbox';
 const data = [{
   name: 'TRIGLICERIDOS',
-  selected: true
+  selected: true,
+  value: 1
 }, {
   name: 'COLESTEROL',
-  selected: false
+  selected: false,
+  value: 2
 }, {
   name: 'HDL COLESTEROL',
-  selected: false
+  selected: false,
+  value: 3
 }, {
   name: 'GLOBULOS BLANCOS',
-  selected: false
+  selected: false,
+  value: 4
 }, {
   name: 'LINFOCITOS',
-  selected: false
+  selected: false,
+  value: 5
 }, {
   name: 'MIXTOS ABSOLUTOS',
-  selected: false
+  selected: false,
+  value: 6
 }];
 const SELECTED_FIELD = 'selected';
 
 const ListBoxA = () => {
+
   const [state, setState] = React.useState({
     employees: data,
     developers: [],
     draggedItem: {}
   });
+
+  const [startDate, setStartDate] = useState(new Date());
 
   const handleItemClick = (event, data, connectedData) => {
     setState({ ...state,
@@ -71,7 +83,8 @@ const ListBoxA = () => {
     });
   };
 
-  return <div style={{ background: "#f5f5f5",textAlign: 'center'}} className='container row'>
+  return (
+  <div style={{ background: "#f5f5f5",textAlign: 'center'}} className='container row'>
         <div style={{background: "#f5f5f5"}} className='row justify-content-center'>
           <div style={{background: "#f5f5f5"}} className='col k-pr-2'>
             <h5>No asignados</h5>
@@ -92,7 +105,7 @@ const ListBoxA = () => {
         }} data={state.developers} textField="name" selectedField={SELECTED_FIELD} onItemClick={e => handleItemClick(e, 'developers', 'employees')} onDragStart={handleDragStart} onDrop={handleDrop} />
           </div>
         </div>
-      </div>;
+      </div>);
 };
 
 export default ListBoxA;

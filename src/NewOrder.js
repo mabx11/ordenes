@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import Card from "react-bootstrap/Card";
 import { Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import Div from "react-bootstrap/divWithClassName";
 import Form from "react-bootstrap/Form";
 import { Field, reduxForm } from "redux-form";
 import Button from "react-bootstrap/Button";
@@ -10,8 +11,12 @@ import DateRangeIcon from "@mui/icons-material/DateRange";
 import Chip from "@mui/material/Chip";
 //import ListExams from "../exams/ListExams";
 import ListBoxA from "./ListBoxA";
+import Calendar from "./components/DatePicker";
+import Navbar from "./components/NavBar";
 import "./App.css";
 import { borderRadius } from "@mui/system";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class NewOrder extends Component {
   state = {
@@ -147,16 +152,18 @@ class NewOrder extends Component {
                 </Form.Select>
               </Form.Group>
   
-              <Form.Group as={Col} controlId="formGridState" id="asist" style={{display: 'none'}}>
-                <Form.Label><h5>Asistencia:</h5></Form.Label>
-                <Form.Select defaultValue="Seleccione...">
-                  <option >Seleccione...</option>
-                  <option>Si</option>
-                  <option>No</option>
-                
+              <Row as={Col}  id="asist" style={{display: 'true'}}>
+                <Form.Group as={Col} controlId="formGridState"> 
+                  <Form.Label><h5>Asistencia a cita:</h5></Form.Label>
+                  <Form.Select defaultValue="Seleccione...">
+                    <option >Seleccione...</option>
+                    <option>Si</option>
+                    <option>No</option>
+                  </Form.Select>
+                </Form.Group>  
+                <Calendar />
+              </Row>
 
-                </Form.Select>
-              </Form.Group>
             </Row>
 
             <Card className="mb-3">
@@ -170,7 +177,7 @@ class NewOrder extends Component {
             </Card>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label><h5>Observaciones:</h5></Form.Label>
+              <Form.Label><h5>Observaciones generales:</h5></Form.Label>
               <Form.Control as="textarea" rows={3} style={{background: "#f5f5f5"}}/>
             </Form.Group>
   
